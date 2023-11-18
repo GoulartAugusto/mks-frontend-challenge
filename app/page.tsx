@@ -1,9 +1,35 @@
 "use client"
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import styled, { createGlobalStyle } from 'styled-components'
+
+import { Header } from "@/components/Header"
+
+const queryClient = new QueryClient()
+
 export default function Home() {
   return (
-    <main>
-
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <GlobalStyle />
+      <Main>
+        <Header />
+      </Main>
+    </QueryClientProvider>
   )
 }
+
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+
+  }
+`
+
+const Main = styled.main`
+
+`
+
