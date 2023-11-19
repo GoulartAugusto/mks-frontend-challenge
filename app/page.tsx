@@ -7,6 +7,7 @@ import  Header  from "@/components/Header"
 import CardGallery from "@/components/CardGallery"
 import Footer from "@/components/Footer"
 
+
 const queryClient = new QueryClient()
 
 // testing

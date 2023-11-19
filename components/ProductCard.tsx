@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import Image from "next/image"
 import { ShoppingBag } from './ShoppingBag'
 
-const WatchImage = "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/applewatch-series7.webp"
-
 interface Props {
     id: String;
     photo: String;

@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { CartIcon } from './CartIcon'
 
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+
 export default function Header() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => {
+      setIsOpen(!isOpen)
+    }
   return (
     <Container>
+        <Sidebar isOpen={isOpen} toggle={toggle} />
         <Logo>
             <Title>MKS</Title>
             <SmallText>Sistemas</SmallText>
         </Logo>
-        <CartButton><CartIcon />0</CartButton>
+        <Navbar toggle={toggle} />
     </Container>
   )
 }
@@ -26,17 +35,6 @@ const Container = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    @media screen and (max-width: 768px){
-
-    }
-    @media screen and (max-width: 675px){
-
-
-    }
-    @media screen and (max-width: 550px){
-
-    }
-
 `
 
 const Logo = styled.div`
