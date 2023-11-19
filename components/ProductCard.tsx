@@ -30,7 +30,8 @@ export default function ProductCard({
                     src={`${photo}`}
                         width={140}
                         height={140}
-                    alt="Picture of the author"
+                        priority
+                        alt="Picture of the author"
                 />
             </ImageContainer>
             <Info>

@@ -37,6 +37,7 @@ export default async function CardGallery() {
           {data.products.map(function (item: Props) {
             return (
               <ProductCard
+                key={item.id.toString()}
                 id={item.id.toString()}
                 price={item.price}
                 name={item.name}
