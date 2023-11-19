@@ -4,22 +4,50 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import styled, { createGlobalStyle } from 'styled-components'
 
 import { Header } from "@/components/Header"
+import CardGallery from "@/components/CardGallery"
+
 
 const queryClient = new QueryClient()
 
-export default function Home() {
+// testing
+
+async function fetchDetails() {
+  const response = await fetch(
+    "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=ASC"
+  )
+  if (response.ok) {
+    const responseBody = await response.json()
+    // console.log(`data ${data}`)
+    //setData(responseBody)
+    console.log(`data ${responseBody}`)
+    return responseBody
+  }
+}
+
+//
+
+export default async function Home() {
+  const data = await fetchDetails()
+
+  interface Props {
+    id: Number;
+    photo: String;
+    name: String;
+    price: String
+    description: String
+  }
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalStyle />
       <Main>
         <Header />
+        <CardGallery />
       </Main>
     </QueryClientProvider>
   )
 }
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
   * {
     box-sizing: border-box;
     margin: 0;
@@ -30,6 +58,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Main = styled.main`
-
+  background: #F9F9F9;
+  height: 100vh;
 `
 
