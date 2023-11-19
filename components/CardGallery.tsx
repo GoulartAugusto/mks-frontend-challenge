@@ -51,9 +51,23 @@ export default async function CardGallery() {
 }
 
 const Container = styled.main`
-    
+    margin-top: 7.25rem;
+    display: flex;
+    justify-content: center;
 `
 const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
+   @media screen and (max-width: 950px){
+    grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: 730px){
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: -6.25rem;
+    }
+    @media screen and (max-width: 550px){
+    grid-template-columns: repeat(1, 1fr);
+    }
 `
 

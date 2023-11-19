@@ -3,9 +3,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import styled, { createGlobalStyle } from 'styled-components'
 
-import { Header } from "@/components/Header"
+import  Header  from "@/components/Header"
 import CardGallery from "@/components/CardGallery"
-
+import Footer from "@/components/Footer"
 
 const queryClient = new QueryClient()
 
@@ -42,6 +42,7 @@ export default async function Home() {
       <Main>
         <Header />
         <CardGallery />
+        <Footer />
       </Main>
     </QueryClientProvider>
   )
@@ -58,7 +59,6 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Main = styled.main`
-  background: #F9F9F9;
-  height: 100vh;
+    background: #F9F9F9;
 `
 

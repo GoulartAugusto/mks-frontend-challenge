@@ -25,12 +25,14 @@ export default function ProductCard({
   return (
     <Card>
         <Content>
-            <Image
-                src={`${photo}`}
-                width={140}
-                height={140}
-                alt="Picture of the author"
-            />
+            <ImageContainer>
+                <Image
+                    src={`${photo}`}
+                        width={140}
+                        height={140}
+                    alt="Picture of the author"
+                />
+            </ImageContainer>
             <Info>
                 <Name>{name}</Name>
                 <PriceTag>
@@ -53,14 +55,28 @@ const Card = styled.div`
     border-radius: 0.5rem;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.14);
     margin-left: 2rem;
-
+    margin-bottom: 1.94rem;
+ 
+    @media screen and (max-width: 550px){
+        width: 15.65594rem;
+        height: 20.5rem;
+    }
 `
 const Content = styled.div`
     margin: 1.13rem 0.75rem 0.75rem 0.87rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+`
+const ImageContainer = styled.div`
+    position: relative;
+    overflow: hidden;
+    width: 8.75rem;
+    height: 8.75rem;
+    @media screen and (max-width: 550px) and (orientation: portrait) {
+        width: 9rem;
+        height: 12rem;
+    }
 `
 
 const Info = styled.section`
@@ -123,4 +139,8 @@ const Comprar = styled.button`
     border: none;
     cursor: pointer;
     background: #0F52BA;
+    @media screen and (max-width: 550px){
+        width: 15.65594rem;
+
+    }
 `

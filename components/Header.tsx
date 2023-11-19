@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { CartIcon } from './CartIcon'
 
-export function Header() {
+export default function Header() {
   return (
     <Container>
         <Logo>
@@ -26,6 +26,17 @@ const Container = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @media screen and (max-width: 768px){
+
+    }
+    @media screen and (max-width: 675px){
+
+
+    }
+    @media screen and (max-width: 550px){
+
+    }
+
 `
 
 const Logo = styled.div`
@@ -35,6 +46,20 @@ const Logo = styled.div`
     align-items: baseline;
     font-weight: 100;
     font-size: 1.25rem;
+    cursor: pointer;
+    @media screen and (max-width: 768px){
+        padding-left: 1rem;
+        height: 50%;
+    }
+    @media screen and (max-width: 675px){
+        padding-left: 1rem;
+        height: 50%;
+
+    }
+    @media screen and (max-width: 550px){
+        padding-left: 1rem;
+        height: 50%;
+    }
 `
 
 const Title = styled.h1`
@@ -63,4 +88,14 @@ const CartButton = styled.button`
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    cursor: pointer;
+    @media screen and (max-width: 675px){
+        margin-right: 1.44rem;
+        height: 50%;
+
+    }
+    @media screen and (max-width: 550px){
+        margin-right: 1.44rem;
+        height: 50%;
+    }
 `
