@@ -5,7 +5,7 @@ import Image from "next/image"
 import { ShoppingBag } from './ShoppingBag'
 
 interface Props {
-    id: String;
+    id: Number;
     photo: String;
     name: String;
     price: String

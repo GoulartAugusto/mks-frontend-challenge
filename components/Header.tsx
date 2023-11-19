@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { CartIcon } from './CartIcon'
 
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 
+
+
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
-
     const toggle = () => {
-      setIsOpen(!isOpen)
+        setIsOpen(!isOpen)
     }
   return (
     <Container>

@@ -39,8 +39,8 @@ export default async function Home() {
   }
   return (
     <QueryClientProvider client={queryClient}>
-      <GlobalStyle />
       <Main>
+      <GlobalStyle />
         <Header />
         <CardGallery />
         <Footer />

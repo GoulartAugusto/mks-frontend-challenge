@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { FaTimes } from "react-icons/fa";
 
-export const SidebarContainer = styled.aside`
+export const SidebarContainer = styled.aside<{ isOpen: boolean }>`
     position: fixed;
     z-index: 999;
     width: 30.375rem;
@@ -19,6 +18,7 @@ export const SidebarContainer = styled.aside`
         width: 85%;
     }
 `
+
 export const CloseIcon = styled.button`
     color: #FFF;
     background: #000;

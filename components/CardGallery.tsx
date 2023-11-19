@@ -38,7 +38,7 @@ export default async function CardGallery() {
             return (
               <ProductCard
                 key={item.id.toString()}
-                id={item.id.toString()}
+                id={item.id}
                 price={item.price}
                 name={item.name}
                 photo={item.photo}

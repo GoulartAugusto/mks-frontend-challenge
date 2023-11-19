@@ -1,8 +1,9 @@
 import React from 'react'
 import { Nav, NavLink, NavIcon, Bars, CartButton } from "./NavbarElements"; 
+
 import { CartIcon } from '../CartIcon';
 
-const Navbar = ({toggle}) => {
+const Navbar = ({toggle}: any) => {
   return (
     <>
         <Nav>

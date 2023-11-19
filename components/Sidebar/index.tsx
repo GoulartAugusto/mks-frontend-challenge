@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SidebarContainer, Icon, CloseIcon, SidebarMenu, SidebarLink, SidebarBtnWrap, SidebarButton, Compras } from "./SidebarElements";
 
 import styled from 'styled-components';
@@ -7,11 +7,16 @@ import Image from 'next/image';
 
 import Picker from '../Picker';
 
-import Footer from '../Footer';
-
 const ProductImage = "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/applewatch-series7.webp"
 
-const Sidebar = ({isOpen, toggle}) => {
+
+interface Props {
+    isOpen: boolean;
+    toggle: () => void;
+}
+
+export default function Sidebar ({isOpen, toggle}: Props) {
+    
   return (
     <SidebarContainer isOpen={isOpen}>
             <SidebarHeading>
@@ -53,7 +58,6 @@ const Sidebar = ({isOpen, toggle}) => {
   )
 }
 
-export default Sidebar
 
 const SidebarFooter = styled.div`
     display: flex;
@@ -129,3 +133,4 @@ const Price = styled.h2`
     font-weight: 800;
     line-height: 1.0625rem;
 `
+
