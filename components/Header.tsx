@@ -24,8 +24,6 @@ export default function Header() {
 }
 
 const Container = styled.main`
-    --primary-color: #0F52BA;
-
     /* This set the Header styling */
 
     height: 6.3125rem;

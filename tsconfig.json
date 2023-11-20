@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Product.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Product.tsx", "redux/slices/cartSlice.js", "redux/store.js", "components/Sidebar/Cart.js"],
   "exclude": ["node_modules"]
 }

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import Image from "next/image"
 import { ShoppingBag } from './ShoppingBag'
+
+import { useDispatch } from 'react-redux'
+import { cartActions } from '@/redux/slices/cartSlice'
 
 interface Props {
     id: Number;
@@ -12,14 +15,30 @@ interface Props {
     description: String
   }
 
-
+  
+  
 export default function ProductCard({
     id,
     photo,
     name,
     price,
-    description
+    description,
 }: Props) {
+
+const dispatch = useDispatch()
+
+const addToCart = () => {
+    dispatch(
+        cartActions.addItem({
+        id: id,
+        name: name,
+        price: price,
+        photo: photo
+        })
+    );
+}
+
+    
   return (
     <Card>
         <Content>
@@ -29,7 +48,7 @@ export default function ProductCard({
                         width={140}
                         height={140}
                         priority
-                        alt="Picture of the author"
+                        alt={`${name}`}
                 />
             </ImageContainer>
             <Info>
@@ -40,7 +59,7 @@ export default function ProductCard({
             </Info>
             <Description>{description}</Description>
             
-            <Comprar><ShoppingBag />COMPRAR</Comprar>
+            <Comprar onClick={addToCart}><ShoppingBag />COMPRAR</Comprar>
         </Content>
     </Card>
   )

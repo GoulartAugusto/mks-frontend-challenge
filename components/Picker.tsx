@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-export function Picker() {
+import { useSelector } from 'react-redux';
+
+export function Picker({item}: any) {
     const [quantity, setQuantity] = useState(1)
     
     const incrementQuantity = () => {
@@ -13,11 +15,11 @@ export function Picker() {
             setQuantity(quantity - 1)
         }
     }
-
+    
   return (
     <Container>
         <DecrementButton onClick={decrementQuantity}>-</DecrementButton>
-        <Quantity>{quantity}</Quantity>
+            <Quantity>{quantity}</Quantity>
         <IncrementButton onClick={incrementQuantity}>+</IncrementButton>
     </Container>
   )

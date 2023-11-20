@@ -27,8 +27,8 @@ export default async function CardGallery() {
     id: Number;
     photo: String;
     name: String;
-    price: String
-    description: String
+    price: String;
+    description: String;
   }
 
   return (

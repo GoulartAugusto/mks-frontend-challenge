@@ -7,6 +7,8 @@ import  Header  from "@/components/Header"
 import CardGallery from "@/components/CardGallery"
 import Footer from "@/components/Footer"
 
+import store from "@/redux/store"
+import { Provider } from 'react-redux';
 
 const queryClient = new QueryClient()
 
@@ -39,12 +41,14 @@ export default async function Home() {
   }
   return (
     <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
       <Main>
       <GlobalStyle />
         <Header />
         <CardGallery />
         <Footer />
       </Main>
+      </Provider>
     </QueryClientProvider>
   )
 }
