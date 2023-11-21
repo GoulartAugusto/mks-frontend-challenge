@@ -17,7 +17,7 @@ export const Cart = () => {
                     <div>Your cart is empty</div>
                 ) : (
                     cartItems.map((item, index) => (
-                        <ShopItem item={item} index={index} />
+                        <ShopItem item={item} index={index} key={index} />
                     ))
                 )
             }
