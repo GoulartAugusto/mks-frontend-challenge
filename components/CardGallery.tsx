@@ -3,16 +3,14 @@ import styled from 'styled-components'
 
 import ProductCard from "@/components/ProductCard"
 
-// testing
 
+// This fetch is where the data comes
 async function fetchDetails() {
   const response = await fetch(
     "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=ASC"
   )
   if (response.ok) {
     const responseBody = await response.json()
-    // console.log(`data ${data}`)
-    //setData(responseBody)
     console.log(`data ${responseBody}`)
     return responseBody
   }

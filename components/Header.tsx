@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 
-
-
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => {
@@ -24,8 +22,6 @@ export default function Header() {
 }
 
 const Container = styled.main`
-    /* This set the Header styling */
-
     height: 6.3125rem;
     background: #0F52BA;
     color: #FFF;

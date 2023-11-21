@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-
 import Image from "next/image"
-import { ShoppingBag } from './ShoppingBag'
 
+import { ShoppingBag } from './ShoppingBag'
 import { useDispatch } from 'react-redux'
 import { cartActions } from '@/redux/slices/cartSlice'
 
@@ -15,8 +14,6 @@ interface Props {
     description: String
   }
 
-  
-  
 export default function ProductCard({
     id,
     photo,
@@ -37,8 +34,7 @@ const addToCart = () => {
         })
     );
 }
-
-    
+   
   return (
     <Card>
         <Content>

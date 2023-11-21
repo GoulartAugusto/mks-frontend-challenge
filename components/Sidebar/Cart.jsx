@@ -5,9 +5,11 @@ import Image from 'next/image';
 import { cartActions } from '../../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { SidebarButton } from "./SidebarElements";
+
 export const Cart = () => {
     const cartItems = useSelector((state) => state.cart.cartItems)
-    
+
     return (
         <div>
             {
@@ -23,20 +25,22 @@ export const Cart = () => {
     )
 }
 
+
 const ShopItem = ({ item }) => {
     const dispatch = useDispatch()
-
+    
     const incrementQuantity = () => {
         dispatch(cartActions.incrementItem(item.id))
     }
-
+    
     const decrementQuantity = () => {
         dispatch(cartActions.decrementItem(item.id))
     }
-
+    
     const deleteProduct = () => {
         dispatch(cartActions.deleteItem(item.id))
     }
+    
     return (
         <ShopCard>
             <Image src={item.photo} alt='' width={57} height={57} />
@@ -55,6 +59,18 @@ const ShopItem = ({ item }) => {
     )
 }
 
+export const Finish = ({ item }) => {
+    const dispatch = useDispatch()
+    const finishCart = () => {
+        dispatch(cartActions.finishBuy())
+    }
+
+    return (
+        <SidebarButton onClick={finishCart}>Finalizar Compra</SidebarButton>
+    )
+}
+
+
 export const CloseIcon = styled.button`
     color: #FFF;
     background: #000;
@@ -71,7 +87,6 @@ export const CloseIcon = styled.button`
 
 `
 
-
 const ShopCard = styled.div`
     width: 23.6875rem;
     height: 5.9375rem;
@@ -87,7 +102,7 @@ const ShopCard = styled.div`
 `
 
 const ProductName = styled.span`
-    width: 7.0625rem;
+    width: 5.0625rem;
     font-size: 0.8125rem;
     font-style: normal;
     font-weight: 400;
@@ -99,7 +114,7 @@ const Selector = styled.div`
     flex-direction: column;
     align-items: start;
     gap: 0.5rem;
-    margin-left: -2rem;
+    margin-left: -0.5rem;
 `
 
 const Qtd = styled.span`

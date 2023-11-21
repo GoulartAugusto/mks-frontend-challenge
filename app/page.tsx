@@ -12,26 +12,7 @@ import { Provider } from 'react-redux';
 
 const queryClient = new QueryClient()
 
-// testing
-
-async function fetchDetails() {
-  const response = await fetch(
-    "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=ASC"
-  )
-  if (response.ok) {
-    const responseBody = await response.json()
-    // console.log(`data ${data}`)
-    //setData(responseBody)
-    console.log(`data ${responseBody}`)
-    return responseBody
-  }
-}
-
-//
-
 export default async function Home() {
-  const data = await fetchDetails()
-
   interface Props {
     id: Number;
     photo: String;
@@ -39,6 +20,7 @@ export default async function Home() {
     price: String
     description: String
   }
+  
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>

@@ -1,15 +1,9 @@
 import React from 'react';
-import { SidebarContainer, Icon, CloseIcon, SidebarMenu, SidebarLink, SidebarBtnWrap, SidebarButton, Compras } from "./SidebarElements";
-
-import { Cart } from './Cart';
-
 import styled from 'styled-components';
 
-import Image from 'next/image';
-
-import Picker from '../Picker';
-
-import { useSelector, useDispatch } from 'react-redux';
+import { SidebarContainer, Icon, CloseIcon, Title } from "./SidebarElements";
+import { Cart, Finish } from './Cart';
+import { useSelector } from 'react-redux';
 
 
 interface Props {
@@ -17,15 +11,13 @@ interface Props {
     toggle: () => void;
 }
 
-
-
-export default function Sidebar ({isOpen, toggle}: Props) {
+export default function Sidebar ({isOpen, toggle}: Props, {item}: any) {
     const totalAmounnt = useSelector((state: any) => state.cart.totalAmount)
 
   return (
     <SidebarContainer isOpen={isOpen}>
             <SidebarHeading>
-                <Compras>Carrinho de compras</Compras>
+                <Title>Carrinho de compras</Title>
                 <Icon onClick={toggle}>
                     <CloseIcon>X</CloseIcon>
                 </Icon>
@@ -40,9 +32,8 @@ export default function Sidebar ({isOpen, toggle}: Props) {
                     <h1>Total:</h1>
                     <h1>R${totalAmounnt}</h1>
                 </Total>
-                <SidebarButton>Finalizar Compra</SidebarButton>
+                <Finish item={item} />
             </SidebarFooter>
-
     </SidebarContainer>
   )
 }

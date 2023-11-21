@@ -99,7 +99,7 @@ export const SidebarButton = styled.button`
 `
 
 
-export const Compras = styled.h1`
+export const Title = styled.h1`
     width: 11.25rem;
     margin-top: 2.2rem;
 `

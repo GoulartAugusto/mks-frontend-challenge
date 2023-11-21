@@ -74,18 +74,14 @@ const cartSlice = createSlice({
         Number(item.price) * Number(item.quantity),0
         );
       },
-      finishCart: (state, action) => {
-        const id = action.payload
-        const existingItem = state.cartItems.find(item => item.id === id)
-    
-        if(existingItem) {
-            state.cartItems = state.cartItems.filter(item => item.id !== id )
-            state.totalQuantity = state.totalQuantity - state.totalQuantity
+      finishBuy: (state, action) => {
+        const cart = action.payload
+        const finishCart = state.cartItems.find(item => item.id === cart)
+        if (state.cartItems.length > 0) {
+            state.cartItems = []
+            state.totalAmount = 0
+            state.totalQuantity = 0
         }
-    
-        state.totalAmount = state.cartItems.reduce((total, item) => total +
-        Number(item.price) * Number(item.quantity),0
-        );
       }
 
     },

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { useSelector } from 'react-redux';
-
 export function Picker({item}: any) {
     const [quantity, setQuantity] = useState(1)
     
