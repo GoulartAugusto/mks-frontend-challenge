@@ -47,6 +47,13 @@ const SidebarFooter = styled.div`
 
 const SidebarHeading = styled.div`
     padding-left: 2.94rem;
+        @media screen and (max-width: 475px) {
+        padding-left: 6.2rem;
+        font-size: 1.275rem;
+        width: 11.125rem;
+        height: 2.3125rem;
+    }
+
 `
 
 const Total = styled.div`
@@ -67,4 +74,7 @@ const CartContainer = styled.div`
     padding-left: 2.94rem;
     max-height: 50vh;
     overflow: auto;
+    @media screen and (max-width: 550px) {
+        padding-left: 6.2rem;
+    }
 `

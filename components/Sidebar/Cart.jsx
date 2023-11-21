@@ -43,21 +43,34 @@ const ShopItem = ({ item }) => {
     
     return (
         <ShopCard>
-            <Image src={item.photo} alt='' width={57} height={57} />
+            <ImageContainer>
+                <Image src={item.photo} priority alt='' fill />
+            </ImageContainer>
             <ProductName>{item.name}</ProductName>
-            <Selector>
-                <Qtd>Qtd: </Qtd>
-                <Container>
-                    <DecrementButton onClick={decrementQuantity}>-</DecrementButton>
-                        <Quantity>{item.quantity}</Quantity>
-                    <IncrementButton onClick={incrementQuantity}>+</IncrementButton>
-                </Container>
-            </Selector>
-            <Price>R${item.price}</Price>
+            <Div>
+                <Selector>
+                    <Qtd>Qtd: </Qtd>
+                    <Container>
+                        <DecrementButton onClick={decrementQuantity}>-</DecrementButton>
+                            <Quantity>{item.quantity}</Quantity>
+                        <IncrementButton onClick={incrementQuantity}>+</IncrementButton>
+                    </Container>
+                </Selector>
+                <PriceTag>
+                    <Price>R${item.price}</Price>
+                </PriceTag>
+            </Div>
             <CloseIcon onClick={deleteProduct}>X</CloseIcon>
         </ShopCard>
     )
 }
+
+const Div = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 1rem;
+`
 
 export const Finish = ({ item }) => {
     const dispatch = useDispatch()
@@ -70,6 +83,16 @@ export const Finish = ({ item }) => {
     )
 }
 
+const ImageContainer = styled.div`
+    position: relative;
+    overflow: hidden;
+    width: 3.8rem;
+    height: 3.8rem;
+    @media screen and (max-width: 550px) and (orientation: portrait) {
+        width: 9rem;
+        height: 12rem;
+    }
+`
 
 export const CloseIcon = styled.button`
     color: #FFF;
@@ -83,7 +106,14 @@ export const CloseIcon = styled.button`
     cursor: pointer;
     position: relative;
     top: -50%;
-    right: -7%;
+    right: -4%;
+    @media screen and (max-width: 550px) {
+        top: -85%;
+        right: -42%;
+        font-size: 2rem;
+        color: black;
+        background: transparent;
+    }
 
 `
 
@@ -99,6 +129,12 @@ const ShopCard = styled.div`
     align-items: center;
     justify-content: space-evenly;
     margin-bottom: 1.37rem;
+    @media screen and (max-width: 550px) {
+        width: 18.6875rem;
+        height: 13.75295rem;
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 const ProductName = styled.span`
@@ -107,6 +143,11 @@ const ProductName = styled.span`
     font-style: normal;
     font-weight: 400;
     line-height: 1.0625rem;
+    @media screen and (max-width: 550px) {
+        font-size: 1.1rem;
+        width: 9rem;
+        margin-bottom: 0.5rem;
+    }
 `
 
 const Selector = styled.div`
@@ -123,6 +164,9 @@ const Qtd = styled.span`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    @media screen and (max-width: 550px) {
+        display: none;
+    }
 `
 
 const Price = styled.h2`
@@ -130,6 +174,10 @@ const Price = styled.h2`
     font-style: normal;
     font-weight: 800;
     line-height: 1.0625rem;
+    @media screen and (max-width: 550px) {
+        color: #FFF;
+        font-size: 0.675rem;
+    }
 `
 
 const Container = styled.div`
@@ -145,10 +193,17 @@ const Container = styled.div`
     color: #000;
     border-radius: 0.265rem;
     font-weight: 100;
+    @media screen and (max-width: 550px) {
+        width: 6rem;
+        height: 2rem;
+    }
 `
 const Quantity = styled.p`
     font-weight: 100;
     margin: 0 0.25rem;
+        @media screen and (max-width: 550px) {
+
+    }
 `
 
 const DecrementButton = styled.button`
@@ -179,4 +234,18 @@ const IncrementButton = styled.button`
     stroke: #BFBFBF;
     cursor: pointer;
 
+`
+const PriceTag = styled.div`
+    border-radius: 0.3125rem;
+    background: transparent;
+    width: 4rem;
+    height: 1.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 550px) {
+        background: #373737;
+        width: 6rem;
+        height: 2rem;
+    }
 `
